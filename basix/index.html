@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASIX — The Number Base Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <div class="brand" id="brandHome" role="button" tabindex="0" title="Go to Home">
+      <span class="brand-icon">⌬</span>
+      <div>
+        <h1>BASIX</h1>
+        <p>THE NUMBER BASE LAB</p>
+      </div>
+    </div>
+    <div class="top-stats">
+      <span>LEVEL <b id="levelStat">1</b>/5</span>
+      <span>SCORE <b id="scoreStat">0</b></span>
+      <span>LIVES <b id="livesStat">♥♥♥</b></span>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero-card">
+        <div class="eyebrow">SYSTEM LOCKED // ACCESS REQUIRED</div>
+        <div class="hero-icon">🔐</div>
+        <h2>CRACK THE BASES.<br><span>ESCAPE THE SYSTEM.</span></h2>
+        <p class="hero-text">
+          Master Decimal, Binary, Octal and Hexadecimal through puzzles,
+          glitches, matching challenges and a final escape code.
+        </p>
+        <div class="hero-buttons">
+          <button class="primary" id="startBtn">▶ START GAME</button>
+          <button class="secondary" id="labBtn">⌘ NUMBER LAB</button>
+        </div>
+        <div class="feature-row">
+          <span>◈ 5 LEVELS</span>
+          <span>◈ 12 CONVERSIONS</span>
+          <span>◈ STEP-BY-STEP</span>
+          <span>◈ PURE JS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="screen">
+      <div class="game-layout">
+        <aside class="mission-panel">
+          <div class="panel-label">MISSION</div>
+          <h2 id="missionTitle">Binary Lab</h2>
+          <p id="missionDesc"></p>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>ESCAPE PROGRESS</span><b id="progressText">0%</b></div>
+            <div class="progress"><i id="progressBar"></i></div>
+          </div>
+          <div class="game-actions">
+            <button class="ghost" id="hintBtn">💡 HINT <span id="hintCost">-20</span></button>
+            <button class="ghost" id="resetGameBtn">↻ RESET</button>
+            <button class="ghost" id="labFromGameBtn">⌘ LAB</button>
+          </div>
+        </aside>
+
+        <div class="challenge-panel">
+          <div id="challengeArea"></div>
+          <div id="feedback" class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="screen">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">FREE MODE // NO LIVES LOST</div>
+          <h2>NUMBER LAB</h2>
+          <p>Convert any valid number into all four number systems.</p>
+        </div>
+        <button class="secondary" id="homeFromLab">← HOME</button>
+      </div>
+
+      <div class="lab-card">
+        <div class="input-grid">
+          <label>
+            <span>NUMBER</span>
+            <input id="labInput" placeholder="e.g. 255, 101010, 377, FF" autocomplete="off" />
+          </label>
+          <label>
+            <span>INPUT BASE</span>
+            <select id="labBase">
+              <option value="10">DECIMAL — BASE 10</option>
+              <option value="2">BINARY — BASE 2</option>
+              <option value="8">OCTAL — BASE 8</option>
+              <option value="16">HEXADECIMAL — BASE 16</option>
+            </select>
+          </label>
+        </div>
+        <div class="lab-buttons">
+          <button class="primary" id="convertBtn">CONVERT ALL</button>
+          <button class="secondary" id="clearLabBtn">CLEAR</button>
+        </div>
+        <div id="labError" class="error-box hidden"></div>
+
+        <div id="results" class="results hidden">
+          <div class="result-card decimal"><span>DECIMAL</span><strong id="decResult">—</strong><small>BASE 10</small></div>
+          <div class="result-card binary"><span>BINARY</span><strong id="binResult">—</strong><small>BASE 2</small></div>
+          <div class="result-card octal"><span>OCTAL</span><strong id="octResult">—</strong><small>BASE 8</small></div>
+          <div class="result-card hex"><span>HEXADECIMAL</span><strong id="hexResult">—</strong><small>BASE 16</small></div>
+        </div>
+
+        <div class="lab-bottom hidden" id="labBottom">
+          <div class="steps-card">
+            <div class="card-title">👁 X-RAY STEPS</div>
+            <div id="stepsContent"></div>
+          </div>
+          <div class="radar-card">
+            <div class="card-title">◉ CONVERSION RADAR</div>
+            <div class="radar">
+              <div class="radar-center" id="radarCenter">255</div>
+              <div class="radar-node n1"><b>BIN</b><span id="radarBin">—</span></div>
+              <div class="radar-node n2"><b>OCT</b><span id="radarOct">—</span></div>
+              <div class="radar-node n3"><b>HEX</b><span id="radarHex">—</span></div>
+              <div class="radar-node n4"><b>DEC</b><span id="radarDec">—</span></div>
+              <div class="radar-lines"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="complete" class="screen">
+      <div class="complete-card">
+        <div class="hero-icon">🚪</div>
+        <div class="eyebrow">SYSTEM BREACHED</div>
+        <h2>YOU ESCAPED!</h2>
+        <p>You mastered the four bases and cracked the final lock.</p>
+        <div class="final-stats">
+          <div><span>SCORE</span><b id="finalScore">0</b></div>
+          <div><span>ACCURACY</span><b id="finalAccuracy">0%</b></div>
+          <div><span>LEVEL</span><b>5/5</b></div>
+        </div>
+        <button class="primary" id="playAgainBtn">↻ PLAY AGAIN</button>
+        <button class="secondary" id="labCompleteBtn">⌘ NUMBER LAB</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
