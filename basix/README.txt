@@ -1,3 +1,6 @@
+GitHub Repository Link: https://github.com/Manasa95307/COA_Microproject.git
+Deployment Link: https://basix-three.vercel.app/
+
 BASIX — The Number Base Lab
 
 Files:
